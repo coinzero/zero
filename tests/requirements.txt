@@ -1,0 +1,7 @@
+pyzmq
+msgspec
+pytest
+pytest-cov
+PyJWT
+pytest-asyncio
+tornado>=6.1

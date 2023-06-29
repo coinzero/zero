@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  auth:
+    build: ./auth
+    container_name: auth
+    command: python main.py
+    ports:
+      - "6000:6000"
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - auth
+      - order
+      - user
+  order:
+    build: ./order
+    container_name: order
+    command: python main.py
+    ports:
+      - "6002:6002"
+  user:
+    build: ./user
+    container_name: user
+    command: python main.py
+    ports:
+      - "6001:6001"
